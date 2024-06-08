@@ -1,19 +1,19 @@
 ---
-title: Keyed each blocks
+title: 带键值的 Each 代码块
 ---
 
-By default, when you modify the value of an `each` block, it will add and remove DOM nodes at the _end_ of the block, and update any values that have changed. That might not be what you want.
+默认来说，当你修改 `each` 代码块的值时，Svelte 会在代码块的 _结尾_ 添加或者移除 DOM 节点，然后更新任何变更的值。有时候这不是你想要的。
 
-It's easier to show why than to explain. The `<Thing>` component sets the emoji as a constant on initialization, but the name is passed in via a prop.
+原因很简单，`Thing` 组件的 `emoji` 是在初始化时固定的，而 `name` 是作为属性（prop）传进去的。
 
-Click the 'Remove first thing' button a few times, and notice what happens:
+多点几次 Remove first thing 按钮，观察发生了什么：
 
-1. It removes the last component.
-2. It then updates the `name` value in the remaining DOM nodes, but not the emoji, which is fixed when each `<Thing>` is created.
+1. 移除了最后一个组件。
+2. 对剩余的 DOM 节点更新了 `name` 属性，但没有更新 `emoji`，因为它在组件创建时就定死了。
 
-Instead, we'd like to remove only the first `<Thing>` component and its DOM node, and leave the others unaffected.
+实际上，我们希望只移除第一个 `Thing` 组件和它对应的 DOM 节点，而保持剩下的不动。
 
-To do that, we specify a unique identifier (or "key") for each iteration of the `each` block:
+要实现这一点，我们需要在 `each` 代码块的每一次迭代中指定一个唯一的标识符（一个 key）：
 
 ```svelte
 /// file: App.svelte
@@ -22,6 +22,6 @@ To do that, we specify a unique identifier (or "key") for each iteration of the 
 {/each}
 ```
 
-Here, `(thing.id)` is the _key_, which tells Svelte how to figure out what to update when the values (`name` in this example) change.
+在这里，`(thing.id)` 就是那个 _key_，它用于帮助 Svelte 分辨出当值（此例中的 `name`）发生变化的时候，应该更新哪个。
 
-> You can use any object as the key, as Svelte uses a `Map` internally — in other words you could do `(thing)` instead of `(thing.id)`. Using a string or number is generally safer, however, since it means identity persists without referential equality, for example when updating with fresh data from an API server.
+> 你可以使用任何对象作为 key，因为 Svelte 在内部使用 `Map` 实现该功能。也就是说，你也可以使用 `(thing)` 而非 `(thing.id)` 作为 key。使用字符串或者数字更保险一点，因为 it means identity persists without referential equality, for example when updating with fresh data from an API server.

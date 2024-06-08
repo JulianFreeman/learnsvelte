@@ -1,8 +1,8 @@
 ---
-title: Await blocks
+title: Await 代码块
 ---
 
-Most web applications have to deal with asynchronous data at some point. Svelte makes it easy to _await_ the value of [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) directly in your markup:
+大部分网页应用都需要处理异步数据。Svelte 可以让你很容易地直接在标记（markup）中 _等待_ [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) 的值。
 
 ```svelte
 /// file: App.svelte
@@ -15,9 +15,9 @@ Most web applications have to deal with asynchronous data at some point. Svelte 
 {/await}+++
 ```
 
-> Only the most recent `promise` is considered, meaning you don't need to worry about race conditions.
+> 只有最新的 `promise` 会被考虑，因此你不用担心竞争条件。
 
-If you know that your promise can't reject, you can omit the `catch` block. You can also omit the first block if you don't want to show anything until the promise resolves:
+如果你确定你的 promise 不会被拒绝，那么可以省略 `catch` 代码块。如果你也不需要展示等待的状态，也可以省略第一个块，直接等到 promise 有结果之后再展示：
 
 ```svelte
 /// no-file

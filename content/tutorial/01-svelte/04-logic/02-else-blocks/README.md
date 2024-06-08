@@ -1,8 +1,8 @@
 ---
-title: Else blocks
+title: Else 代码块
 ---
 
-Just like in JavaScript, an `if` block can have an `else` block:
+就像 JavaScript 一样，`if` 代码块中可以有 `else` 代码块：
 
 ```svelte
 /// file: App.svelte
@@ -13,4 +13,4 @@ Just like in JavaScript, an `if` block can have an `else` block:
 {/if}
 ```
 
-> A `#` character always indicates a _block opening_ tag. A `/` character always indicates a _block closing_ tag. A `:` character, as in `{:else}`, indicates a _block continuation_ tag. Don't worry — you've already learned almost all the syntax Svelte adds to HTML.
+> `#` 符号永远标志着 _一个代码块的开始_，`/` 符号永远标志着 _一个代码块的结束_。`:` 符号，就比如 `{:else}` 中的这个，标志着 _代码块的继续_。不用担心，目前为止你已经学完了所有 Svelte 添加到 HTML 中的语法了。

@@ -1,8 +1,8 @@
 ---
-title: Else-if blocks
+title: Else-if 代码块
 ---
 
-Multiple conditions can be 'chained' together with `else if`:
+可以使用 `else if` 连接多个条件：
 
 ```svelte
 /// file: App.svelte
