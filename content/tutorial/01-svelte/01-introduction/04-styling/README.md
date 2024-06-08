@@ -1,8 +1,8 @@
 ---
-title: Styling
+title: 添加样式
 ---
 
-Just like in HTML, you can add a `<style>` tag to your component. Let's add some styles to the `<p>` element:
+就像在 HTML 中一样，你也可以给组件添加 `style` 标签。让我们给 `p` 元素添加一些样式：
 
 ```svelte
 /// file: App.svelte
@@ -17,4 +17,4 @@ Just like in HTML, you can add a `<style>` tag to your component. Let's add some
 </style>
 ```
 
-Importantly, these rules are _scoped to the component_. You won't accidentally change the style of `<p>` elements elsewhere in your app, as we'll see in the next step.
+值得注意的是，这些样式规则只在 _当前组件内_ 适用。因此你不用担心这些规则会一不小心影响到其他组件的 `p` 元素，这一点在之后的教程中会提到。

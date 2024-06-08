@@ -1,34 +1,34 @@
 ---
-title: Dynamic attributes
+title: 动态属性
 ---
 
-Just like you can use curly braces to control text, you can use them to control element attributes.
+就像你可以使用花括号控制文本一样，你也可以用花括号控制元素的属性（attributes）。
 
-Our image is missing a `src` — let's add one:
+我们的图像缺少了 `src` 属性，让我们加一个：
 
 ```svelte
 /// file: App.svelte
 <img +++src={src}+++ />
 ```
 
-That's better. But if you hover over the `<img>` in the editor, Svelte is giving us a warning:
+这样好多了。不过如果你把鼠标放到编辑器的 `<img>` 标签上，Svelte 会给出这样一个警告：
 
-> A11y: &lt;img&gt; element should have an alt attribute
+> A11y: &lt;img&gt; 元素应该有 alt 属性
 
-When building web apps, it's important to make sure that they're _accessible_ to the broadest possible userbase, including people with (for example) impaired vision or motion, or people without powerful hardware or good internet connections. Accessibility (shortened to a11y) isn't always easy to get right, but Svelte will help by warning you if you write inaccessible markup.
+当我们构建网页应用时，我们要确保这个应用能被尽可能多的人群使用，比如有视觉或行动障碍的人群，或者硬件设施不太高的人群，或者网络连接不太好的人群。无障碍（简写作 a11y）有时候并不容易达到，但是 Svelte 会尽可能帮助你，在你编写没达到无障碍要求的代码时提出警告。
 
-In this case, we're missing the `alt` attribute that describes the image for people using screenreaders, or people with slow or flaky internet connections that can't download the image. Let's add one:
+在这个例子中，我们没有填写 `alt` 属性，这样使用屏幕阅读器的人群，或者网络又慢又卡的人群就无法了解到这个是什么图片。让我们把它加上：
 
 ```svelte
 /// file: App.svelte
 <img src={src} +++alt="A man dances."+++ />
 ```
 
-We can use curly braces _inside_ attributes. Try changing it to `"{name} dances."` — remember to declare a `name` variable in the `<script>` block.
+我们也可以在属性 _内部_ 使用花括号。尝试改为 `"{name} dances"`，当然要记得先在 `script` 标签内声明 `name` 变量。
 
-## Shorthand attributes
+## 属性简写
 
-It's not uncommon to have an attribute where the name and value are the same, like `src={src}`. Svelte gives us a convenient shorthand for these cases:
+属性名和变量名相同是一件很常见的事情，就比如 `src={src}`。Svelte 允许我们在这种情况下使用简写：
 
 ```svelte
 /// file: App.svelte
