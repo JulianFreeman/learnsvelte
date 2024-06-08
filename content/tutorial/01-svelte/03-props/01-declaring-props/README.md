@@ -1,10 +1,10 @@
 ---
-title: Declaring props
+title: 声明属性
 ---
 
-So far, we've dealt exclusively with internal state — that is to say, the values are only accessible within a given component.
+目前为止，我们只处理了组件的内部状态，也就是说，这些值只在组件内部可用。
 
-In any real application, you'll need to pass data from one component down to its children. To do that, we need to declare _properties_, generally shortened to 'props'. In Svelte, we do that with the `export` keyword. Edit the `Nested.svelte` component:
+但在实际的应用场景中，你可能会需要把数据从一个组件向下传递到其子组件中。要实现这点，我们需要声明 _属性_（properties），简写作 `props` 。在 Svelte 中，我们使用 `export` 关键字。将 `Nested.svelte` 组件修改如下：
 
 ```svelte
 /// file: Nested.svelte
@@ -13,4 +13,4 @@ In any real application, you'll need to pass data from one component down to its
 </script>
 ```
 
-> Just like `$:`, this may feel a little weird at first. That's not how `export` normally works in JavaScript modules! Just roll with it for now — it'll soon become second nature.
+> 就像 `$:` 一样，一开始你可能会感觉有点奇怪，因为这不是 `export` 在 JavaScript 模块中的常规用法。就先接受过来吧，之后就习惯了。

@@ -1,10 +1,10 @@
 ---
-title: Spread props
+title: 扩展属性
 ---
 
-In this exercise, we've forgotten to specify the `version` prop expected by `PackageInfo.svelte`, meaning it shows 'version undefined'.
+在这个练习中，我们忘记指定 `PackageInfo.svelte` 组件所需要的 `version` 属性了，导致出现了 `version undefined`。
 
-We _could_ fix it by adding the `version` prop...
+我们 _可以_ 把 `version` 加上来解决这个问题……
 
 ```svelte
 /// file: App.svelte
@@ -16,11 +16,11 @@ We _could_ fix it by adding the `version` prop...
 />
 ```
 
-...but since the properties of `pkg` correspond to the component's expected props, we can 'spread' them onto the component instead:
+……但，因为 `pkg` 的属性跟组件所需要的属性是有关联的，因为我们可以把属性“扩展”到子组件中：
 
 ```svelte
 /// file: App.svelte
 <PackageInfo +++{...pkg}+++ />
 ```
 
-> Conversely, if you need to reference all the props that were passed into a component, including ones that weren't declared with `export`, you can do so by accessing `$$props` directly. It's not generally recommended, as it's difficult for Svelte to optimise, but it's useful in rare cases.
+> 反过来，如果你需要在组件内引用所有的属性，包括那些没有添加 `export` 声明的属性，你可以直接用 `$$props`。通常不推荐使用这个，因为这会让 Svelte 很难优化代码，但是在某些情况下这的确有用。

@@ -1,8 +1,8 @@
 ---
-title: Default values
+title: 默认值
 ---
 
-We can easily specify default values for props in `Nested.svelte`:
+我们可以很容易地在 `Nested.svelte` 中设置属性的默认值：
 
 ```svelte
 /// file: Nested.svelte
@@ -11,7 +11,7 @@ We can easily specify default values for props in `Nested.svelte`:
 </script>
 ```
 
-If we now add a second component _without_ an `answer` prop, it will fall back to the default:
+如果我们现在添加第二个 _没有_ `answer` 属性的组件，就会显示默认值：
 
 ```svelte
 /// file: App.svelte
