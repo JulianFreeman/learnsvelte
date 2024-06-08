@@ -1,10 +1,10 @@
 ---
-title: Select multiple
+title: 多选
 ---
 
-A `<select>` element can have a `multiple` attribute, in which case it will populate an array rather than selecting a single value.
+`select` 元素可以有 `multiple` 属性，开启后返回值是一个数组而非单个值。
 
-Replace the checkboxes with a `<select multiple>`:
+用 `<select multiple>` 替换复选框：
 
 ```svelte
 /// file: App.svelte
@@ -17,6 +17,6 @@ Replace the checkboxes with a `<select multiple>`:
 +++</select>+++
 ```
 
-Note that we're able to omit the `value` attribute on the `<option>`, since the value is identical to the element's contents.
+注意如果 `option` 元素内的内容与 `value` 属性的值相同，则可以省略 `value` 属性。
 
-> Press and hold the `control` key (or the `command` key on MacOS) to select multiple options.
+> 按住 `CTRL` 键（MacOS 上的 `command` 键）可以选择多个选项。

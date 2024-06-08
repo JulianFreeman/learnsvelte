@@ -1,10 +1,10 @@
 ---
-title: Numeric inputs
+title: 数字输入
 ---
 
-In the DOM, everything is a string. That's unhelpful when you're dealing with numeric inputs — `type="number"` and `type="range"` — as it means you have to remember to coerce `input.value` before using it.
+在 DOM 中，一切皆为字符串。但这对于处理数字来说并不友好，比如 `type="number"` 或者 `type="range"` ，因为你必须记得要先强转 `input.value` 才能用。
 
-With `bind:value`, Svelte takes care of it for you:
+但是有了 `bind:value`，Svelte 就帮你处理了：
 
 ```svelte
 /// file: App.svelte

@@ -2,7 +2,7 @@
 title: Checkbox inputs
 ---
 
-Checkboxes are used for toggling between states. Instead of binding to `input.value`, we bind to `input.checked`:
+复选框用于切换状态，因此我们绑定到 `input.checked` 而非 `input.value`：
 
 ```svelte
 /// file: App.svelte
