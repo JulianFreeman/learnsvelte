@@ -1,8 +1,8 @@
 ---
-title: Inline handlers
+title: 内联事件处理器
 ---
 
-You can also declare event handlers inline:
+你也可以直接在标记内声明事件处理器：
 
 ```svelte
 /// file: App.svelte
@@ -24,4 +24,4 @@ You can also declare event handlers inline:
 </div>
 ```
 
-> In some frameworks you may see recommendations to avoid inline event handlers for performance reasons, particularly inside loops. That advice doesn't apply to Svelte — the compiler will always do the right thing, whichever form you choose.
+> 在一些其他框架中，你可能会见到说不建议使用内联事件处理器，尤其在循环中，因为会影响性能。这个对 Svelte 不适用，因为编译器总是会做最正确的事情，不管你怎么写。

@@ -1,8 +1,8 @@
 ---
-title: Component events
+title: 组件事件
 ---
 
-Components can also dispatch events. To do so, they must create an event dispatcher. Update `Inner.svelte`:
+组件也可以派发事件。要实现这点，我们必须创建一个事件派发器。更新 `Inner.svelte`：
 
 ```svelte
 /// file: Inner.svelte
@@ -19,13 +19,13 @@ Components can also dispatch events. To do so, they must create an event dispatc
 </script>
 ```
 
-> `createEventDispatcher` must be called when the component is first instantiated — you can't do it later inside e.g. a `setTimeout` callback. This links `dispatch` to the component instance.
+> `createEventDispatcher` 必须在组件首次初始化时调用，而不能在之后调用（比如在 `setTimeout` 回调中）。这样才能把 `dispatch` 跟组件实例连接起来。
 
-Then, add an `on:message` handler in `App.svelte`:
+然后在 `App.svelte` 中添加 `on:message` 处理器：
 
 ```svelte
 /// file: App.svelte
 <Inner +++on:message={handleMessage}+++ />
 ```
 
-> You can also try changing the event name to something else. For instance, change `dispatch('message', {...})` to `dispatch('greet', {...})` in `Inner.svelte` and change the attribute name from `on:message` to `on:greet` in `App.svelte`.
+> 你也可以把事件名称换成别的，比如在 `Inner.svelte` 中把 `dispatch('message', {...})` 换成 `dispatch('greet', {...})`，然后在 `App.svelte` 中把 `on:message` 换成 `on:greet`。

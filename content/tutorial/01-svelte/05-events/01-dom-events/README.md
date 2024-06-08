@@ -1,8 +1,8 @@
 ---
-title: DOM events
+title: DOM 事件
 ---
 
-As we've briefly seen already, you can listen to any DOM event on an element (such as click or [pointermove](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event)) with the `on:` directive:
+我们之前已经见过了，你可以通过在元素上加一个 `on:` 标志来监听任何 DOM 事件（比如点击事件或者 [鼠标移动事件](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event) 等）：
 
 ```svelte
 /// file: App.svelte
