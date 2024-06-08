@@ -1,10 +1,10 @@
 ---
-title: Updating arrays and objects
+title: 更新数组和对象
 ---
 
-Because Svelte's reactivity is triggered by assignments, using array methods like `push` and `splice` won't automatically cause updates. For example, clicking the 'Add a number' button doesn't currently do anything, even though we're calling `numbers.push(...)` inside `addNumber`.
+因为 Svelte 的响应是由赋值触发的，所以使用 `push` 或 `splice` 这样的数组方法不会自动触发更新。比如，尽管我们在 `addNumber` 函数内调用了 `numbers.push(...)`，但点击 Add a number 按钮什么都不会发生。
 
-One way to fix that is to add an assignment that would otherwise be redundant:
+其中一个解决这个问题的办法是写一个冗余的赋值：
 
 ```js
 /// file: App.svelte
@@ -14,7 +14,7 @@ function addNumber() {
 }
 ```
 
-But there's a more idiomatic solution:
+但是还有一个更常用的办法是这样：
 
 ```js
 /// file: App.svelte
@@ -23,9 +23,9 @@ function addNumber() {
 }
 ```
 
-You can use similar patterns to replace `pop`, `shift`, `unshift` and `splice`.
+你可以用类似的模式替换 `pop`，`shift`，`unshift` 和 `splice` 。
 
-Assignments to _properties_ of arrays and objects — e.g. `obj.foo += 1` or `array[i] = x` — work the same way as assignments to the values themselves.
+对数组或者对象的 _属性_ （properties）的赋值也可以触发更新，比如 `obj.foo += 1` 或者 `array[i] = x` 等。
 
 ```js
 /// file: App.svelte
@@ -34,7 +34,7 @@ function addNumber() {
 }
 ```
 
-A simple rule of thumb: the name of the updated variable must appear on the left hand side of the assignment. For example this...
+一条简单的经验法则：要更新的值的名字必须出现在赋值的左边才行。比如说下面这个……
 
 ```js
 /// no-file
@@ -43,4 +43,4 @@ const foo = obj.foo;
 foo.bar = 2;
 ```
 
-...won't trigger reactivity on `obj.foo.bar`, unless you follow it up with `obj = obj`.
+……就不会触发 `obj.foo.bar` 的更新，除非你接一条 `obj = obj`。

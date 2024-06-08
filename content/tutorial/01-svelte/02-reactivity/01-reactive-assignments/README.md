@@ -1,10 +1,10 @@
 ---
-title: Assignments
+title: 赋值
 ---
 
-At the heart of Svelte is a powerful system of _reactivity_ for keeping the DOM in sync with your application state — for example, in response to an event.
+Svelte 的核心是一个强大的 *响应* 系统，用来保持 DOM 跟应用状态同步。比如说响应事件。
 
-To demonstrate it, we first need to wire up an event handler (we'll learn more about these [later](/tutorial/dom-events)):
+要演示这个，我们首先需要创建一个事件处理器（我们会在 [稍后](/tutorial/dom-events) 学习这个）：
 
 ```svelte
 /// file: App.svelte
@@ -14,7 +14,7 @@ To demonstrate it, we first need to wire up an event handler (we'll learn more a
 </button>
 ```
 
-Inside the `increment` function, all we need to do is change the value of `count`:
+在 `increment` 函数内，我们只需要更改 `count` 的值即可：
 
 ```js
 /// file: App.svelte
@@ -23,4 +23,4 @@ function increment() {
 }
 ```
 
-Svelte 'instruments' this assignment with some code that tells it the DOM will need to be updated.
+Svelte 会把这个赋值“构建”成一些代码，来通知 DOM 它需要更新了。

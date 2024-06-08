@@ -1,8 +1,8 @@
 ---
-title: Statements
+title: 语句
 ---
 
-We're not limited to declaring reactive _values_ — we can also run arbitrary _statements_ reactively. For example, we can log the value of `count` whenever it changes:
+我们不仅可以声明响应式 _变量_，还可以直接运行响应式 _语句_。比如说，我们可以在 `count` 变量变更时打印其值：
 
 ```js
 /// file: App.svelte
@@ -11,7 +11,7 @@ let count = 0;
 +++$: console.log(`the count is ${count}`);+++
 ```
 
-You can easily group statements together with a block:
+你也可以使用代码块来包含多条语句：
 
 ```js
 /// file: App.svelte
@@ -21,7 +21,7 @@ $: +++{+++
 +++}+++
 ```
 
-You can even put the `$:` in front of things like `if` blocks:
+你也可以在 `if` 代码块之前添加 `$:` ：
 
 ```js
 /// file: App.svelte
