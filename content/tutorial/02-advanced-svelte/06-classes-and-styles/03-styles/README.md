@@ -1,8 +1,8 @@
 ---
-title: The style directive
+title: style 标志
 ---
 
-As with `class`, you can write your inline `style` attributes literally, because Svelte is really just HTML with fancy bits:
+就跟 `class` 一样，你也可以编写内联的 `style` 属性，因为 Svelte 真的就是 HTML 外加一点点改动：
 
 ```svelte
 /// file: App.svelte
@@ -13,7 +13,7 @@ As with `class`, you can write your inline `style` attributes literally, because
 >
 ```
 
-When you have a lot of styles, it can start to look a bit wacky. We can tidy things up by using the `style:` directive:
+当你的样式越来越多的时候，看起来就有点乱了。我们可以使用 `style:` 标志来梳理一下：
 
 ```svelte
 /// file: App.svelte

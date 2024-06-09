@@ -1,8 +1,8 @@
 ---
-title: Shorthand class directive
+title: class 标志的简写
 ---
 
-Often, the name of the class will be the same as the name of the value it depends on:
+一般来说，类跟其对应变量的名称都是相同的：
 
 ```svelte
 /// no-file
@@ -13,7 +13,7 @@ Often, the name of the class will be the same as the name of the value it depend
 >
 ```
 
-In those cases we can use a shorthand form:
+在这种情况下我们可以使用简写形式：
 
 ```svelte
 /// file: App.svelte
