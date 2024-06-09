@@ -1,8 +1,8 @@
 ---
-title: Transition events
+title: 过渡事件
 ---
 
-It can be useful to know when transitions are beginning and ending. Svelte dispatches events that you can listen to like any other DOM event:
+有时候能知道过渡何时开始何时结束是很有用的，Svelte 派发了这样的事件，你可以像监听任何其他 DOM 事件一样监听它们：
 
 ```svelte
 /// file: App.svelte

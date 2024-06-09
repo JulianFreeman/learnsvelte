@@ -1,12 +1,12 @@
 ---
-title: The animate directive
+title: animate 标志
 ---
 
-In the [previous chapter](/tutorial/deferred-transitions), we used deferred transitions to create the illusion of motion as elements move from one todo list to the other.
+在 [上一章](/tutorial/deferred-transitions) 中，我们使用延迟过渡创建了一个列表元素从一个表移动到另一个表的运动效果。
 
-To complete the illusion, we also need to apply motion to the elements that _aren't_ transitioning. For this, we use the `animate` directive.
+要完成这个效果，我们还需要对剩下的 _不_ 过渡的元素应用运动效果。要达到这一点，我们使用 `animate` 标志。
 
-First, import the `flip` function — flip stands for ['First, Last, Invert, Play'](https://aerotwist.com/blog/flip-your-animations/) — from `svelte/animate` into `TodoList.svelte`:
+首先，在 `TodoList.svelte` 中，从 `svelte/animate` 导入 `flip` 函数，flip 代表 ['First, Last, Invert, Play'](https://aerotwist.com/blog/flip-your-animations/)：
 
 ```svelte
 /// file: TodoList.svelte
@@ -19,7 +19,7 @@ First, import the `flip` function — flip stands for ['First, Last, Invert, Pla
 </script>
 ```
 
-Then add it to the `<li>` elements:
+然后添加到 `li` 元素上：
 
 ```svelte
 /// file: TodoList.svelte
@@ -31,7 +31,7 @@ Then add it to the `<li>` elements:
 >
 ```
 
-The movement is a little slow in this case, so we can add a `duration` parameter:
+现在运动得有一点慢，我们可以加一个 `duration` 参数：
 
 ```svelte
 /// file: TodoList.svelte
@@ -43,6 +43,6 @@ The movement is a little slow in this case, so we can add a `duration` parameter
 >
 ```
 
-> `duration` can also be a `d => milliseconds` function, where `d` is the number of pixels the element has to travel
+> `duration` 也可以是一个 `d => milliseconds` 函数，其中 `d` 是元素要移动的像素个数
 
-Note that all the transitions and animations are being applied with CSS, rather than JavaScript, meaning they won't block (or be blocked by) the main thread.
+注意所有的过渡和动画都是由 CSS 完成的，而非 JavaScript，因此它们不会阻断主线程或者被主线程阻断。

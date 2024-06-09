@@ -1,12 +1,12 @@
 ---
-title: Global transitions
+title: 全局过渡
 ---
 
-Ordinarily, transitions will only play on elements when their direct containing block is added or destroyed. In the example here, toggling the visibility of the entire list does not apply transitions to individual list elements.
+一般来说，过渡只会在元素直接所属的代码块被添加或销毁时发生。在本例中，切换整个列表的显示状态并不会对列表元素应用过渡。
 
-Instead, we'd like transitions to not only play when individual items are added and removed with the slider but also when we toggle the checkbox.
+但是，我们希望不仅在单个列表元素被添加或删除时能有过渡，在整个列表切换显示状态时也能有过渡。
 
-We can achieve this with a _global_ transition, which plays when _any_ block containing the transitions is added or removed:
+我们可以通过 _全局_ 过渡实现这点，这样 _任何_ 包含过渡的代码块在添加或移除时都会发生过渡。
 
 ```svelte
 /// file: App.svelte
@@ -15,4 +15,4 @@ We can achieve this with a _global_ transition, which plays when _any_ block con
 </div>
 ```
 
-> In Svelte 3, transitions were global by default and you had to use the `|local` modifier to make them local.
+> 在 Svelte 3 中，过渡默认都是全局的，你需要手动加上 `|local` 修饰器来取消全局效果。

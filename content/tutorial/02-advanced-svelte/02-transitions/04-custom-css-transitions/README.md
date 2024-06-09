@@ -1,8 +1,8 @@
 ---
-title: Custom CSS transitions
+title: 自定义 CSS 过渡
 ---
 
-The `svelte/transition` module has a handful of built-in transitions, but it's very easy to create your own. By way of example, this is the source of the `fade` transition:
+`svelte/transition` 模块提供了很多内置的过渡函数，但是要创建自己的过渡函数也很容易。举例来说，下面是 `fade` 过渡的源码：
 
 ```js
 /// no-file
@@ -17,19 +17,19 @@ function fade(node, { delay = 0, duration = 400 }) {
 }
 ```
 
-The function takes two arguments — the node to which the transition is applied, and any parameters that were passed in — and returns a transition object which can have the following properties:
+这个函数接收两个参数：要应用过渡的节点，和其他任意要传入的参数；然后返回一个可以包含以下属性的过渡对象：
 
-- `delay` — milliseconds before the transition begins
-- `duration` — length of the transition in milliseconds
-- `easing` — a `p => t` easing function (see the chapter on [tweening](/tutorial/tweens))
-- `css` — a `(t, u) => css` function, where `u === 1 - t`
-- `tick` — a `(t, u) => {...}` function that has some effect on the node
+- `delay` — 过渡开始之前的微秒数
+- `duration` — 以微妙为单位的过渡时长
+- `easing` — 一个 `p => t` 缓动函数（详见 [补间](/tutorial/tweens)）
+- `css` — 一个 `(t, u) => css` 函数，其中 `u === 1 - t`
+- `tick` — 一个 `(t, u) => {...}` 函数，对节点有一些影响
 
-The `t` value is `0` at the beginning of an intro or the end of an outro, and `1` at the end of an intro or beginning of an outro.
+`t` 的值在进入动画的开始和消失动画的结束为 `0`，在进入动画的结束和消失动画的开始为 `1`。
 
-Most of the time you should return the `css` property and _not_ the `tick` property, as CSS animations run off the main thread to prevent jank where possible. Svelte 'simulates' the transition and constructs a CSS animation, then lets it run.
+大部分时候你应该返回 `css` 属性而 _非_ `tick` 属性，因为 CSS 动画在主线程之外运行，以尽可能防止卡顿。Svelte 模拟了过渡并构建了一个 CSS 动画，然后运行它。
 
-For example, the `fade` transition generates a CSS animation somewhat like this:
+比如说，`fade` 过渡会生成一个类似下面这样的 CSS 动画：
 
 ```css
 /// no-file
@@ -40,7 +40,7 @@ For example, the `fade` transition generates a CSS animation somewhat like this:
 100% { opacity: 1 }
 ```
 
-We can get a lot more creative though. Let's make something truly gratuitous:
+当然我们可以发挥更多创意。让我们做一些真正有意思的事情：
 
 ```svelte
 /// file: App.svelte
@@ -69,4 +69,4 @@ We can get a lot more creative though. Let's make something truly gratuitous:
 </script>
 ```
 
-Remember: with great power comes great responsibility.
+记住：能力越大，责任越大。

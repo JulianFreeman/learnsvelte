@@ -1,8 +1,8 @@
 ---
-title: Custom JS transitions
+title: 自定义 JS 过渡
 ---
 
-While you should generally use CSS for transitions as much as possible, there are some effects that can't be achieved without JavaScript, such as a typewriter effect:
+尽管大部分时候你都应该尽可能地使用 CSS 实现过渡，但有些效果没有 JavaScript 还真实现不了，比如打字机效果：
 
 ```js
 /// file: App.svelte

@@ -1,10 +1,10 @@
 ---
-title: Key blocks
+title: Key 代码块
 ---
 
-Key blocks destroy and recreate their contents when the value of an expression changes. This is useful if you want an element to play its transition whenever a value changes instead of only when the element enters or leaves the DOM.
+Key 代码块会在表达式的值变更时销毁并重新创建其内容。如果你希望一个元素会在其值变更时产生过渡效果，而不仅仅在其加入或者离开 DOM 时产生，那么这个就很有用。
 
-Here, for example, we'd like to play the `typewriter` transition from `transition.js` whenever the loading message, i.e. `i` changes. Wrap the `<p>` element in a key block:
+比如说，我们希望每当加载信息，也就是 `i` 的值发生变动时，就播放 `transition.js` 文件的 `typewriter` 过渡。把 `p` 元素包裹在一个 key 代码块中：
 
 ```svelte
 /// file: App.svelte
