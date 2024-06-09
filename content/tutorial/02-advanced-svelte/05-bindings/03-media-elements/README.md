@@ -1,10 +1,10 @@
 ---
-title: Media elements
+title: 媒体元素
 ---
 
-You can bind to properties of `<audio>` and `<video>` elements, making it easy to (for example) build custom player UI, like `AudioPlayer.svelte`.
+你可以绑定 `<audio>` 和 `<video>` 元素的属性，以轻松构建自定义的播放器 UI，就像 `AudioPlayer.svelte` 一样。
 
-First, add the `<audio>` element along with its bindings (we'll use the shorthand form for `src`, `duration` and `paused`):
+首先，添加 `audio` 元素及其绑定（我们使用 `src`、`duration` 和 `paused` 的简写形式）：
 
 ```svelte
 /// file: AudioPlayer.svelte
@@ -22,7 +22,7 @@ First, add the `<audio>` element along with its bindings (we'll use the shorthan
 	></button>
 ```
 
-Next, add an event handler to the `<button>` that toggles `paused`:
+然后，给 `button` 添加一个事件处理器，用来切换 `paused`：
 
 ```svelte
 /// file: AudioPlayer.svelte
@@ -33,7 +33,7 @@ Next, add an event handler to the `<button>` that toggles `paused`:
 ></button>
 ```
 
-Our audio player now has basic functionality. Let's add the ability to seek to a specific part of a track by dragging the slider. Inside the slider's `pointerdown` handler there's a `seek` function, where we can update `time`:
+现在我们的音乐播放器已经有基本的功能了。再让我们添加可以拖动滑块将音乐定位到指定时长的功能。在滑块的 `pointerdown` 处理器中有一个 `seek` 函数，我们可以在里面更新 `time`：
 
 ```js
 /// file: AudioPlayer.svelte
@@ -48,7 +48,7 @@ function seek(e) {
 }
 ```
 
-When the track ends, be kind — rewind:
+当音乐播放完毕之后，让我们友好一点，给进度条复位：
 
 ```svelte
 /// file: AudioPlayer.svelte
@@ -63,22 +63,22 @@ When the track ends, be kind — rewind:
 ></audio>
 ```
 
-The complete set of bindings for `<audio>` and `<video>` is as follows — seven _readonly_ bindings...
+`<audio>` 和 `<video>` 的所有绑定列举如下，一共七个 _只读_ 绑定……
 
-- `duration` (readonly) — the total duration, in seconds
-- `buffered` (readonly) — an array of `{start, end}` objects
-- `seekable` (readonly) — ditto
-- `played` (readonly) — ditto
-- `seeking` (readonly) — boolean
-- `ended` (readonly) — boolean
-- `readyState` (readonly) — number between (and including) 0 and 4
+- `duration` （只读） — 总时长，以秒为单位
+- `buffered` （只读） — 一个包含 `{start, end}` 对象的数组
+- `seekable` （只读） — 同上
+- `played` （只读） — 同上
+- `seeking` （只读） — 布尔
+- `ended` （只读） — 布尔
+- `readyState` （只读） — 0 到 4 （包含）之间的数字
 
-...and five _two-way_ bindings:
+……和五个 _双向_ 绑定：
 
-- `currentTime` — the current position of the playhead, in seconds
-- `playbackRate` — speed up or slow down (`1` is 'normal')
-- `paused` — this one should be self-explanatory
-- `volume` — a value between 0 and 1
-- `muted` — a boolean value where true is muted
+- `currentTime` — 当前播放位置，以秒为单位
+- `playbackRate` — 加速或者减速（`1` 是“正常速度”）
+- `paused` — 这个应该很好理解
+- `volume` — 0 到 1 之间的值
+- `muted` — 一个布尔值，`true` 表示静音
 
-Videos additionally have readonly `videoWidth` and `videoHeight` bindings.
+视频额外具有 `videoWidth` 和 `videoHeight` 两个只读绑定。

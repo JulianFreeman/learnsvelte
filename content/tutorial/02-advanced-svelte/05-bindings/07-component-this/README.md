@@ -1,12 +1,12 @@
 ---
-title: Binding to component instances
+title: 绑定到组件实例
 ---
 
-Just as you can bind to DOM elements, you can bind to component instances themselves with `bind:this`.
+就如同你可以绑定到 DOM 元素一样，你也可以使用 `bind:this` 绑定到组件实例。
 
-This is useful in the rare cases that you need to interact with a component programmatically (rather than by providing it with updated props). Revisiting our canvas app from [a few exercises ago](actions), it would be nice to add a button to clear the screen.
+在少数情况下这的确有用，特别是你需要通过程序与组件交互的时候（而非提供一些更新的属性）。回顾一下不久之前的 [一个练习](actions)，在这个画布应用中，能添加一个清除画布的按钮会更好。
 
-First, let's export a function from `Canvas.svelte`:
+首先，让我们从 `Canvas.svelte` 导出一个函数：
 
 ```svelte
 /// file: Canvas.svelte
@@ -18,7 +18,7 @@ export let size;
 }+++
 ```
 
-Then, create a reference to the component instance:
+然后，创建一个指向组件实例的引用：
 
 ```svelte
 /// file: App.svelte
@@ -38,7 +38,7 @@ Then, create a reference to the component instance:
 	<Canvas +++bind:this={canvas}+++ color={selected} size={size} />
 ```
 
-Finally, add a button that calls the `clear` function:
+最后，添加一个调用 `clear` 函数的按钮：
 
 ```svelte
 /// file: App.svelte

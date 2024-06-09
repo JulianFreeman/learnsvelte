@@ -1,8 +1,8 @@
 ---
-title: Contenteditable bindings
+title: 可编辑内容绑定
 ---
 
-Elements with a `contenteditable` attribute support `textContent` and `innerHTML` bindings:
+支持 `contenteditable` 属性的元素可以使用 `textContent` 和 `innerHTML` 绑定：
 
 ```svelte
 /// file: App.svelte

@@ -1,5 +1,5 @@
 {
-	"title": "Advanced bindings",
+	"title": "高级绑定",
 	"scope": {
 		"prefix": "/src/lib/",
 		"name": "src"

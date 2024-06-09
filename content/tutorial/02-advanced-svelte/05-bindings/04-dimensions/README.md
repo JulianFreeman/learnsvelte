@@ -1,8 +1,8 @@
 ---
-title: Dimensions
+title: 尺寸
 ---
 
-Every block-level element has `clientWidth`, `clientHeight`, `offsetWidth` and `offsetHeight` bindings:
+每一格块级别的元素都有 `clientWidth`、`clientHeight`、`offsetWidth` 和 `offsetHeight` 这几个绑定：
 
 ```svelte
 /// file: App.svelte
@@ -12,8 +12,8 @@ Every block-level element has `clientWidth`, `clientHeight`, `offsetWidth` and `
 </div>
 ```
 
-These bindings are readonly — changing the values of `w` and `h` won't have any effect on the element.
+这些绑定都是只读绑定，修改 `w` 和 `h` 的值不会对元素造成任何影响。
 
-> Elements are measured using a technique similar to [this one](http://www.backalleycoder.com/2013/03/18/cross-browser-event-based-element-resize-detection/). There is some overhead involved, so it's not recommended to use this for large numbers of elements.
+> Svelte 使用类似 [这样](http://www.backalleycoder.com/2013/03/18/cross-browser-event-based-element-resize-detection/) 的方法获取元素的尺寸，这会涉及到一些开销，因此不建议在大量的元素上使用这个。
 >
-> `display: inline` elements cannot be measured with this approach; nor can elements that can't contain other elements (such as `<canvas>`). In these cases you will need to measure a wrapper element instead.
+> `display: inline` 的元素无法使用这种办法获取尺寸，不能包含其他元素的元素（比如 `canvas`）也不行。在这种情况下你需要先用一个包装元素把元素包起来再获取包装元素的尺寸。
