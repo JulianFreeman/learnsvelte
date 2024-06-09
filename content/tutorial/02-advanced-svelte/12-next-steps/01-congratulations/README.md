@@ -1,16 +1,16 @@
 ---
-title: Congratulations!
+title: 可喜可贺！
 ---
 
-You've now finished the Svelte tutorial and are ready to start building.
+现在你已经完成了 Svelte 的教程，可以开始编写自己的代码了。
 
-The next two parts of the tutorial will focus on SvelteKit, a full-fledged framework for creating apps of all shapes and sizes. 
+下面两部分教程会聚焦在 SvelteKit，一个用于创建任何规模和用途的网页应用的成熟的框架。
 
-If you're suffering from information overload and aren't ready to go through the SvelteKit tutorial yet, don't worry! You can use your existing Svelte knowledge without learning all of SvelteKit. Just run this in your terminal and follow the prompts...
+如果你觉得信息量太大，缓不过来，还没准备好去看 SvelteKit 的教程，没关系！你可以只用目前学到的 Svelte 知识，而不必学习任何 SvelteKit 内容。只需要在终端中输入如下命令然后跟着提示走……
 
 ```bash
 /// no-file
 npm create svelte@latest
 ```
 
-...and start editing `src/routes/+page.svelte`. When you're ready, click the link below to continue your journey.
+然后开始编辑 `src/routes/+page.svelte` 即可。等你准备好了，点一下下面的按钮，让我们继续旅程吧。

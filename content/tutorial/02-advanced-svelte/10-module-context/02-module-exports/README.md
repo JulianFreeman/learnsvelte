@@ -1,8 +1,8 @@
 ---
-title: Exports
+title: 导出
 ---
 
-Anything exported from a `context="module"` script block becomes an export from the module itself. Let's export a `stopAll` function:
+任何从 `context="module"` 这个 `script` 标签中导出的内容都会变成从模块本身导出的内容。让我们导出一个 `stopAll` 函数：
 
 ```svelte
 /// file: AudioPlayer.svelte
@@ -15,7 +15,7 @@ Anything exported from a `context="module"` script block becomes an export from 
 </script>
 ```
 
-We can now import `stopAll` in `App.svelte`...
+现在我们可以在 `App.svelte` 中导入 `stopAll` 了……
 
 ```svelte
 /// file: App.svelte
@@ -25,7 +25,7 @@ We can now import `stopAll` in `App.svelte`...
 </script>
 ```
 
-...and use it in an event handler:
+……然后在事件处理器中使用：
 
 ```svelte
 /// file: App.svelte
@@ -40,4 +40,4 @@ We can now import `stopAll` in `App.svelte`...
 </div>
 ```
 
-> You can't have a default export, because the component _is_ the default export.
+> 没有默认导出，因为组件本身 _就是_ 默认导出。

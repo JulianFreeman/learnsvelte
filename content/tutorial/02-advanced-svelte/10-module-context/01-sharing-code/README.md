@@ -1,12 +1,12 @@
 ---
-title: Sharing code
+title: 共享代码
 ---
 
-In all the examples we've seen so far, the `<script>` block contains code that runs when each component instance is initialised. For the vast majority of components, that's all you'll ever need.
+在我们目前为止的例子中，`script` 标签内的代码会在每个组件实例初始化时运行一次。对于大部分的组件，这就是我们想要的。
 
-Very occasionally, you'll need to run some code outside of an individual component instance. For example: returning to our custom audio player from a [previous exercise](media-elements), you can play all four tracks simultaneously. It would be better if playing one stopped all the others.
+极少的情况下，你会需要在单个的组件实例之外运行一些代码。比如说，拿我们 [之前一节](media-elements) 中的音乐播放器来说，你可以同时播放所有的音乐。但如果播放一个能自动暂停其他的音乐，会更好。
 
-We can do that by declaring a `<script context="module">` block. Code contained inside it will run once, when the module first evaluates, rather than when a component is instantiated. Place this at the top of `AudioPlayer.svelte` (note that this is a _separate_ script tag):
+我们可以通过声明一个 `<script context="module">` 代码块来实现这点。在这里面包含的代码只会在该模块第一次解析时运行一次，而不是每创建一个组件就运行一次。把这个放在 `AudioPlayer.svelte` 的顶端（注意这是一个 _单独的_ 	`script` 标签）：
 
 ```svelte
 /// file: AudioPlayer.svelte
@@ -15,7 +15,7 @@ We can do that by declaring a `<script context="module">` block. Code contained 
 </script>+++
 ```
 
-It's now possible for the components to 'talk' to each other without any state management:
+现在这几个组件之间不需要任何状态管理也可以相互通信了：
 
 ```svelte
 /// file: AudioPlayer.svelte
