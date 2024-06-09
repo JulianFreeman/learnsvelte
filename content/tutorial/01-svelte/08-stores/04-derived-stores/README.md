@@ -1,8 +1,8 @@
 ---
-title: Derived stores
+title: 派生存储
 ---
 
-You can create a store whose value is based on the value of one or more _other_ stores with `derived`. Building on our previous example, we can create a store that derives the time the page has been open:
+你可以用 `derived` 函数创建一个依赖于 _其他_ 一个或多个 store 的 store。接续上一个例子，我们可以创建一个 store，派生自页面打开的时间：
 
 ```js
 /// file: stores.js
@@ -12,4 +12,4 @@ export const elapsed = derived(
 );
 ```
 
-> It's possible to derive a store from multiple input stores, and to explicitly `set` a value instead of returning it (which is useful for deriving values asynchronously). Consult the [API reference](https://svelte.dev/docs#run-time-svelte-store-derived) for more information.
+> 也可以从多个输入 stores 中派生一个 store，然后显式地用 `set` 来设定其值而不是简单地返回（这在异步派生值得时候很有用）。查看 [API 参考](https://svelte.dev/docs#run-time-svelte-store-derived) 获取更多信息。

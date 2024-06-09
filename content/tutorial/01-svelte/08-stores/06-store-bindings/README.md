@@ -1,19 +1,19 @@
 ---
-title: Store bindings
+title: 存储绑定
 ---
 
-If a store is writable — i.e. it has a `set` method — you can bind to its value, just as you can bind to local component state.
+如果一个 store 是可写的，也就是说它拥有 `set` 方法，你就可以绑定其值，就如同绑定一个本地的组件状态一样。
 
-In this example we're exporting a writable store `name` and a derived store `greeting` from `stores.js`. Update the `<input>` element in `App.svelte`:
+在本例中，我们从 `stores.js` 文件中导出了一个可写存储 `name` 和一个派生存储 `greeting`。在 `App.svelte` 中更新 `input` 元素：
 
 ```svelte
 /// file: App.svelte
 <input +++bind:+++value={$name}>
 ```
 
-Changing the input value will now update `name` and all its dependents.
+现在修改输入框的值将会更新 `name` 以及其依赖。
 
-We can also assign directly to store values inside a component. Add an `on:click` event handler to update `name`:
+我们也可以直接在组件内给 store 的值赋值。添加一个 `on:click` 事件处理器来更新 `name`：
 
 ```svelte
 /// file: App.svelte
@@ -22,4 +22,4 @@ We can also assign directly to store values inside a component. Add an `on:click
 </button>
 ```
 
-The `$name += '!'` assignment is equivalent to `name.set($name + '!')`.
+`$name += '!'` 赋值等同于 `name.set($name + '!')`。

@@ -1,10 +1,10 @@
 ---
-title: Auto-subscriptions
+title: 自动订阅
 ---
 
-The app in the previous example works, but there's a subtle bug — the store is subscribed to, but never unsubscribed. If the component was instantiated and destroyed many times, this would result in a _memory leak_.
+上一节中的应用能用，但是有一个小小的 bug：那个 store 被订阅了，但是从没有取消订阅。如果这个组件会被创建和销毁好多次，那么就容易造成 _内存泄漏_。
 
-Start by declaring `unsubscribe` in `App.svelte`:
+在 `App.svelte` 中声明 `unsubscribe`：
 
 ```js
 /// file: App.svelte
@@ -13,9 +13,9 @@ Start by declaring `unsubscribe` in `App.svelte`:
 });
 ```
 
-> Calling a `subscribe` method returns an `unsubscribe` function.
+> 调用 `subscribe` 方法会返回一个 `unsubscribe` 函数。
 
-You now declared `unsubscribe`, but it still needs to be called, for example through the `onDestroy` lifecycle hook:
+现在有 `unsubscribe` 了，但还需要调用，比如通过 `onDestroy` 这个生命周期函数来调用：
 
 ```svelte
 /// file: App.svelte
@@ -38,7 +38,7 @@ You now declared `unsubscribe`, but it still needs to be called, for example thr
 <h1>The count is {count_value}</h1>
 ```
 
-It starts to get a bit boilerplatey though, especially if your component subscribes to multiple stores. Instead, Svelte has a trick up its sleeve — you can reference a store value by prefixing the store name with `$`:
+事情开始变得麻烦起来，特别是你的组件需要订阅很多 store 的时候。这里，Svelte 有一个小妙招：你可以通过在 store 的名称前加 `$` 来引用 store 中的值：
 
 ```svelte
 /// file: App.svelte
@@ -61,8 +61,8 @@ It starts to get a bit boilerplatey though, especially if your component subscri
 <h1>The count is {+++$count+++}</h1>
 ```
 
-> Auto-subscription only works with store variables that are declared (or imported) at the top-level scope of a component.
+> 自动订阅只对在一个组件最顶层范围上声明或导入的 store 变量有用。
 
-You're not limited to using `$count` inside the markup, either — you can use it anywhere in the `<script>` as well, such as in event handlers or reactive declarations.
+对 `$count` 的使用不局限在标记代码（markup）中，你也可以在 `<script>` 标签内的任何地方使用，比如在事件处理器中或者响应式声明中。
 
-> Any name beginning with `$` is assumed to refer to a store value. It's effectively a reserved character — Svelte will prevent you from declaring your own variables with a `$` prefix.
+> 任何以 `$` 开头的变量都会被默认当作一个 store 变量。因此这算是一个保留字符了，Svelte 会阻止你声明自己的带 `$` 前缀的变量。

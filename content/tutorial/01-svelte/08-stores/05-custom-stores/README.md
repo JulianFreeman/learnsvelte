@@ -1,10 +1,10 @@
 ---
-title: Custom stores
+title: 自定义存储
 ---
 
-As long as an object correctly implements the `subscribe` method, it's a store. Beyond that, anything goes. It's very easy, therefore, to create custom stores with domain-specific logic.
+只要一个对象正确地实现了 `subscribe` 方法，那它就是一个 store，除此之外，没有任何要求。因此要创建特定领域逻辑的自定义存储是很简单的。
 
-For example, the `count` store from our earlier example could include `increment`, `decrement` and `reset` methods and avoid exposing `set` and `update`:
+比如说，我们之前例子中的 `count` 这个 store 可以包含 `increment`、`decrement` 和 `reset` 方法而避免暴露 `set` 和 `update`：
 
 ```js
 /// file: stores.js
