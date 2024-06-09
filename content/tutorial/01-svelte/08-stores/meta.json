@@ -1,5 +1,5 @@
 {
-	"title": "Stores",
+	"title": "存储",
 	"scope": {
 		"prefix": "/src/lib/",
 		"name": "src"

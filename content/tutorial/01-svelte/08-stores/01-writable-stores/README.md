@@ -1,14 +1,14 @@
 ---
-title: Writable stores
+title: 可写存储
 ---
 
-Not all application state belongs inside your application's component hierarchy. Sometimes, you'll have values that need to be accessed by multiple unrelated components, or by a regular JavaScript module.
+并不是所有的应用状态都存在于应用的组件结构中。有的值需要被多个互不相关的组件使用，或者被常规的 JavaScript 模块使用。
 
-In Svelte, we do this with _stores_. A store is simply an object with a `subscribe` method that allows interested parties to be notified whenever the store value changes. In `App.svelte`, `count` is a store, and we're setting `count_value` in the `count.subscribe` callback.
+在 Svelte 中，我们通过 _存储_ （stores）实现这点。一个 store 就是一个带有 `subscribe` 方法的对象，当存储的值发生变化时用来通知感兴趣的订阅方。在 `App.svelte` 中，`count` 就是一个 store，我们在 `count.subscribe` 的回调函数中设置 `count_value` 的值。
 
-Open `stores.js` to see the definition of `count`. It's a _writable_ store, which means it has `set` and `update` methods in addition to `subscribe`.
+打开 `stores.js` 查看 `count` 的定义。这是一个 _可写_ 存储，表示除了 `subscribe` 方法之外，它还有 `set` 和 `update` 方法。
 
-Now, in `Incrementer.svelte`, wire up the `+` button:
+现在，在 `Incrementer.svelte` 中，修改函数让 `+` 按钮起作用：
 
 ```js
 /// file: Incrementer.svelte
@@ -17,9 +17,9 @@ function increment() {
 }
 ```
 
-Clicking the `+` button should now update the count. Do the inverse for `Decrementer.svelte`.
+现在点击 `+` 按钮就会更新 `count` 了。同理修改 `Decrementer.svelte`。
 
-Finally, in `Resetter.svelte`, implement `reset`:
+最后，在 `Resetter.svelte` 中，实现 `reset`：
 
 ```js
 /// file: Resetter.svelte
