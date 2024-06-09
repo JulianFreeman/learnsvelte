@@ -2,9 +2,9 @@
 title: <svelte:head>
 ---
 
-The `<svelte:head>` element allows you to insert elements inside the `<head>` of your document. This is useful for things like `<title>` and `<meta>` tags, which are critical for good SEO.
+`<svelte:head>` 元素允许你向 `<head>` 中插入元素。这对于像 `<title>` 和 `<meta>` 这样的标签很有用，对搜索引擎优化（SEO）很重要。
 
-Since those are quite hard to show in the context of this tutorial, we'll use it for a different purpose — loading stylesheets.
+但是因为要在教程里展示这样的效果很困难，因此这里我们换作演示另一种效果：加载样式表。
 
 ```svelte
 /// file: App.svelte
@@ -20,4 +20,4 @@ Since those are quite hard to show in the context of this tutorial, we'll use it
 <h1>Welcome to my site!</h1>
 ```
 
-> In server-side rendering (SSR) mode, contents of `<svelte:head>` are returned separately from the rest of your HTML.
+> 在服务端渲染（SSR）模式，`<svelte:head>` 的内容会跟 HTML 的其他内容分开返回。

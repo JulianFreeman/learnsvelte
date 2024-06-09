@@ -2,11 +2,11 @@
 title: <svelte:fragment>
 ---
 
-The `<svelte:fragment>` element allows you to place content in a named slot without wrapping it in a container DOM element.
+`<svelte:fragment>` 元素允许你向一个命名槽中放置内容，而不必用 DOM 元素容器包裹。
 
-In this exercise, we're making a Tic-Tac-Toe game. To form a grid, the `<button>` elements in `App.svelte` should be direct descendants of the `<div class="board">` element in `Board.svelte`.
+在本例中，我们要编写一个 Tic-Tac-Toe 游戏。要绘制一个表格，`App.svelte` 中的 `button` 元素必须是 `Board.svelte` 中 `<div class="board">` 的直接后代。
 
-At the moment, it's horribly broken, because they're children of `<div slot="game">` instead. Let's fix it:
+但是现在，事情崩坏了。因为这些按钮实际是 `<div slot="game">` 的后代。让我们来修正它：
 
 ```svelte
 /// file: App.svelte

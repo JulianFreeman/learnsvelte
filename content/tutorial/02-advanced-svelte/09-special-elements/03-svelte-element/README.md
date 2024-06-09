@@ -2,7 +2,7 @@
 title: <svelte:element>
 ---
 
-Similarly, we don't always know in advance what kind of DOM element to render. `<svelte:element>` comes in handy here. As with the [previous exercise](svelte-component), we can replace a long sequence of `if` blocks with a single dynamic element:
+同样的，有时候我们并不能提前知道应该渲染什么样的 DOM 元素。这时候 `<svelte:element>` 就来救场了。就跟 [上一节](svelte-component) 一样，我们可以用一个动态的元素替换一系列的 `if` 块：
 
 ```svelte
 /// file: App.svelte
@@ -17,4 +17,4 @@ Similarly, we don't always know in advance what kind of DOM element to render. `
 </svelte:element>+++
 ```
 
-The `this` value can be any string, or a falsy value — if it's falsy, no element is rendered.
+`this` 的值可以是任意字符串，或者是一个假值，如果是假值，则不会渲染元素。

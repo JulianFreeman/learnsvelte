@@ -2,9 +2,9 @@
 title: <svelte:component>
 ---
 
-A component can change its type altogether with `<svelte:component>`. In this exercise, we want to show `RedThing.svelte` if the `color` is `red`, `GreenThing.svelte` if it's `green`, and so on.
+一个组件可以通过 `<svelte:component>` 完全变更其类型。在本例中，我们希望 `color` 为 `red` 的时候展示 `RedThing.svelte`，而为 `green` 的时候展示 `GreenThing.svelte`，以此类推。
 
-We _could_ do this with a sequence of `if` blocks...
+我们 _可以_ 用一系列的 `if` 块来实现这个……
 
 ```svelte
 /// file: App.svelte
@@ -17,7 +17,7 @@ We _could_ do this with a sequence of `if` blocks...
 {/if}
 ```
 
-...but it's a little cumbersome. Instead, we can create a single dynamic component:
+……但，这就有点繁琐。因此，我们可以创建一个动态的组件：
 
 ```svelte
 /// file: App.svelte
@@ -30,4 +30,4 @@ We _could_ do this with a sequence of `if` blocks...
 +++<svelte:component this={selected.component} />+++
 ```
 
-The `this` value can be any component constructor, or a falsy value — if it's falsy, no component is rendered.
+`this` 的值可以是任意组件构造器，或者是一个假值，如果是假值，就不渲染该组件。

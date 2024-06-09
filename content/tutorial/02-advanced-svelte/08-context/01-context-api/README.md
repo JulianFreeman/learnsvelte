@@ -1,10 +1,10 @@
 ---
-title: setContext and getContext
+title: setContext 和 getContext
 ---
 
-The context API provides a mechanism for components to 'talk' to each other without passing around data and functions as props, or dispatching lots of events. It's an advanced feature, but a useful one. In this exercise, we're going to recreate [Schotter](https://collections.vam.ac.uk/item/O221321/schotter-print-nees-georg/) by George Nees — one of the pioneers of generative art — using the context API.
+Context API 提供了一种可以让组件之间相互通信的方法，而不用来回用属性传递数据或者函数，或者派发一堆的事件。这是一个高级特性，不过很有用。这本例中，我们将会使用 Context API 重建生成式艺术的先驱之一，George Nees 创作的 [Schotter](https://collections.vam.ac.uk/item/O221321/schotter-print-nees-georg/)。
 
-Inside `Canvas.svelte`, there's an `addItem` function that adds an item to the canvas. We can make it available to components inside `<Canvas>`, like `<Square>`, with `setContext`:
+在 `Canvas.svelte` 中，有一个 `addItem` 函数用来向画布中添加元素。我们可以用 `setContext` 来让 `<Canvas>` 的子组件（比如 `<Square>`）也能获取这个函数：
 
 ```svelte
 /// file: Canvas.svelte
@@ -27,7 +27,7 @@ Inside `Canvas.svelte`, there's an `addItem` function that adds an item to the c
 </script>
 ```
 
-Inside child components, we can now get the context with, well, `getContext`:
+在子组件中，我们现在可以用 `getContext` 来获取这个 Context 了：
 
 ```svelte
 /// file: Square.svelte
@@ -45,7 +45,7 @@ Inside child components, we can now get the context with, well, `getContext`:
 </script>
 ```
 
-So far, so... boring. Let's add some randomness to the grid:
+目前为止，一切尚……有点无聊。让我们向表格中加点随机性：
 
 ```svelte
 /// file: App.svelte
@@ -65,9 +65,9 @@ So far, so... boring. Let's add some randomness to the grid:
 </div>
 ```
 
-Like [lifecycle functions](/tutorial/onmount), `setContext` and `getContext` must be called during component initialisation. (The context key (`'canvas'` in this case) can be anything you like, including non-strings, which is useful for controlling who can access the context.)
+如同 [生命周期函数](/tutorial/onmount) 一样，`setContext` 和 `getContext` 必须在组件初始化期间被调用。（Context 的 key（此例中的 `'canvas'`）可以是任意值，包括非字符串，这对于控制谁可以获取这个 Context 很有用。）
 
-Your context object can include anything, including stores. This allows you to pass values that change over time to child components:
+那你的 Context 对象也可以包含任意值，包括 stores。这允许你向子组件传递一些会随着时间变化的值：
 
 ```js
 /// no-file
