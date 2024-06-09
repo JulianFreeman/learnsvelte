@@ -1,5 +1,5 @@
 ---
-title: Checkbox inputs
+title: 复选框输入
 ---
 
 复选框用于切换状态，因此我们绑定到 `input.checked` 而非 `input.value`：

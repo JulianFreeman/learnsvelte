@@ -2,9 +2,9 @@
 title: onMount
 ---
 
-Every component has a _lifecycle_ that starts when it is created, and ends when it is destroyed. There are a handful of functions that allow you to run code at key moments during that lifecycle. The one you'll use most frequently is `onMount`, which runs after the component is first rendered to the DOM.
+每一个组件都有一个 _生命周期_，从组件创建时起，到组件销毁时止。Svelte 有很多函数可以让我们在生命周期的某些关键阶段执行代码。最常用的一个就是 `onMount`，在组件第一次渲染到 DOM 时调用。
 
-In this exercise, we have a `<canvas>` that we'd like to animate, using the `paint` function in `gradient.js`. Begin by importing the `onMount` function from `svelte`:
+在本节练习中，我们有一个 `canvas` 元素，并使用 `gradient.js` 中的 `paint` 函数来制作动画。首先从 `svelte` 中导入 `onMount` 函数：
 
 ```svelte
 /// file: App.svelte
@@ -14,7 +14,7 @@ In this exercise, we have a `<canvas>` that we'd like to animate, using the `pai
 </script>
 ```
 
-Then, add a callback that runs when the component mounts:
+然后添加一个在组件初始化后调用的回调函数：
 
 ```svelte
 /// file: App.svelte
@@ -34,9 +34,9 @@ Then, add a callback that runs when the component mounts:
 </script>
 ```
 
-> In a [later exercise](bind-this), we'll learn how to get an element reference without using `document.querySelector`.
+> 在 [之后的一节练习](bind-this) 中，我们会学习不用 `document.querySelector` 也能获取元素的索引。
 
-So far so good — you should see gently undulating colours in the shape of the Svelte logo. But there's one problem — the loop will continue even after the component has been destroyed. To fix that, we need to return a cleanup function from `onMount`:
+目前为止一切尚好。你应该能看到 Svelte 的 logo 上有轻微的此起彼伏的颜色。但这里有一个问题：这个循环在组件被销毁后依然还会运行。要解决这个问题，我们需要 `onMount` 返回一个清理函数：
 
 ```js
 /// file: App.svelte
