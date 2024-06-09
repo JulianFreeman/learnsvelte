@@ -1,12 +1,12 @@
 ---
-title: Slot props
+title: 槽属性
 ---
 
-Components can pass data _back_ to their slotted content via _slot props_. In this app, we have a list of named CSS colours. Typing into the `<input>` will filter the list.
+组件可以通过 _槽属性（slot props）_ 把数据 _传回_ 它们槽里的内容。在本例中，我们有一个 CSS 名称颜色的列表，在 `input` 元素内输入内容可以过滤列表。
 
-Right now every row is showing `AliceBlue`, and as lovely a colour as it is, that's not what we want.
+现在每一行都显示的 `AliceBlue`，尽管这个颜色挺喜人的，但这不是我们想要的。
 
-Open `FilterableList.svelte`. The `<slot>` is being rendered for each filtered item in the list. Pass the data into the slot:
+打开 `FilterableList.svelte`，列表中的每一个被过滤出来的元素都会被 `slot` 渲染。向这个槽中传递数据：
 
 ```svelte
 /// file: FilterableList.svelte
@@ -17,9 +17,9 @@ Open `FilterableList.svelte`. The `<slot>` is being rendered for each filtered i
 </div>
 ```
 
-(As in other contexts, `{item}` is shorthand for `item={item}`.)
+（在这里，`{item}` 是 `item={item}` 的简写。）
 
-Then, on the other side, expose the data to the slotted content with the `let:` directive:
+然后另一边，使用 `let:` 标志将数据暴露给槽里的内容。
 
 ```svelte
 /// file: App.svelte
@@ -38,7 +38,7 @@ Then, on the other side, expose the data to the slotted content with the `let:` 
 </FilterableList>
 ```
 
-Finally, get rid of the placeholder variable, which we no longer need:
+最后，移除不再需要的占位变量：
 
 ```svelte
 /// file: App.svelte
@@ -50,4 +50,4 @@ Finally, get rid of the placeholder variable, which we no longer need:
 </script>
 ```
 
-> Named slots can also have props; use the `let` directive on an element with a `slot="..."` attribute, instead of on the component itself.
+> 命名槽也可以有属性（props）：在拥有 `slot="..."` 属性（attribute）的元素上使用 `let` 标志，而非直接在组件上用。

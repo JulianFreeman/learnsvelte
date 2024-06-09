@@ -1,8 +1,8 @@
 ---
-title: Slots
+title: 槽
 ---
 
-Just like elements can have children...
+就跟元素可以包含子元素一样……
 
 ```html
 /// no-file
@@ -11,7 +11,7 @@ Just like elements can have children...
 </div>
 ```
 
-...so can components. Before a component can accept children, though, it needs to know where to put them. We do this with the `<slot>` element. Put this inside `Card.svelte`:
+……组件也可以包含子组件。在给组件添加子组件之前，它需要知道要把这个子组件放在什么位置。我们通过 `slot` 元素实现这点，把它加入到 `Card.svelte` 中：
 
 ```svelte
 /// file: Card.svelte
@@ -20,7 +20,7 @@ Just like elements can have children...
 </div>
 ```
 
-You can now put things on the card:
+现在你就可以给卡片添加内容了：
 
 ```svelte
 /// file: App.svelte

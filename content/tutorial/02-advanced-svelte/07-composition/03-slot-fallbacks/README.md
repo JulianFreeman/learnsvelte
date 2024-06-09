@@ -1,8 +1,8 @@
 ---
-title: Slot fallbacks
+title: 槽的默认内容
 ---
 
-A component can specify _fallbacks_ for any slots that are left empty, by putting content inside the `<slot>` element:
+组件可以给任意留空的槽指定 _默认内容_，只需要将其放入 `slot` 元素内即可：
 
 ```svelte
 /// file: Card.svelte

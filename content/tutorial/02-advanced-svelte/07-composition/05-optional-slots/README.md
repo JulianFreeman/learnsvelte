@@ -1,8 +1,8 @@
 ---
-title: Checking for slot content
+title: 检查槽的内容
 ---
 
-In some cases, you may want to control parts of your component based on whether slotted content was passed in. For example, if we remove the `<header>` from `App.svelte`...
+有些情况下，我们需要根据是否有槽内容来控制组件的某些部分。比如说，如果把 `App.svelte` 中的 `<header>` 移除……
 
 ```svelte
 /// file: App.svelte
@@ -23,9 +23,9 @@ In some cases, you may want to control parts of your component based on whether 
 </div>
 ```
 
-...we're left with an ugly double border because `FilterableList.svelte` is still rendering the `<div class="header">`.
+……你就会发现留下了一个丑陋的双边界线，因为 `FilterableList.svelte` 还是渲染了 `<div class="header">`（尽管没有内容）。
 
-We can fix that by using the special `$$slots` variable in `FilterableList.svelte`:
+我们可以在 `FilterableList.svelte` 中加入一个特殊的 `$$slots` 变量来修正这一点：
 
 ```svelte
 /// file: FilterableList.svelte

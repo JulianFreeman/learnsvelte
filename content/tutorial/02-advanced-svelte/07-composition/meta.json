@@ -1,5 +1,5 @@
 {
-	"title": "Component composition",
+	"title": "组件复合",
 	"scope": {
 		"prefix": "/src/lib/",
 		"name": "src"
