@@ -1,5 +1,5 @@
 {
-	"title": "Advanced Svelte",
+	"title": "Svelte 进阶",
 	"scope": {
 		"prefix": "/src/lib/",
 		"name": "src"

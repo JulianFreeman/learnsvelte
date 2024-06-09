@@ -12,4 +12,4 @@ export const elapsed = derived(
 );
 ```
 
-> 也可以从多个输入 stores 中派生一个 store，然后显式地用 `set` 来设定其值而不是简单地返回（这在异步派生值得时候很有用）。查看 [API 参考](https://svelte.dev/docs#run-time-svelte-store-derived) 获取更多信息。
+> 也可以从多个输入 stores 中派生一个 store，然后显式地用 `set` 来设定其值而不是简单地返回（这在异步派生值的时候很有用）。查看 [API 参考](https://svelte.dev/docs#run-time-svelte-store-derived) 获取更多信息。

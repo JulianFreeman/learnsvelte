@@ -1,10 +1,10 @@
 ---
-title: Springs
+title: 弹簧
 ---
 
-The `spring` function is an alternative to `tweened` that often works better for values that are frequently changing.
+`spring` 函数作为 `tweened` 的替代，通常在面对经常变化的值时效果更好。
 
-In this example we have two stores — one representing the circle's coordinates, and one representing its size. Let's convert them to springs:
+在本例中，有两个 store，其中一个表示圆圈的坐标，另一个表示圆圈的大小。让我们将其转换为 spring：
 
 ```svelte
 /// file: App.svelte
@@ -16,7 +16,7 @@ In this example we have two stores — one representing the circle's coordinates
 </script>
 ```
 
-Both springs have default `stiffness` and `damping` values, which control the spring's, well... springiness. We can specify our own initial values:
+两个 spring 各有默认的 `stiffness` and `damping` 值，用来控制弹簧的……弹性。我们也可以手动指定初始值：
 
 ```js
 /// file: App.svelte
@@ -26,4 +26,4 @@ let coords = spring({ x: 50, y: 50 }, +++{
 }+++);
 ```
 
-Waggle your mouse around, and try dragging the sliders to get a feel for how they affect the spring's behaviour. Notice that you can adjust the values while the spring is still in motion.
+晃动你的鼠标，尝试修改滑块的值来感受一下其对弹簧行为的影响。注意在弹簧仍在运动的期间，你依然可以修改这些值。
