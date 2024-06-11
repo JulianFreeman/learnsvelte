@@ -1,10 +1,10 @@
 ---
-title: Layouts
+title: 布局
 ---
 
-Different routes of your app will often share common UI. Instead of repeating it in each `+page.svelte` component, we can use a `+layout.svelte` component that applies to all routes in the same directory.
+网页应用的不同页面往往会使用相同的 UI。为了避免在每一个 `+page.svelte` 组件中重复相同的内容，我们可以使用一个 `+layout.svelte` 组件来对同一目录内的所有页面应用相同的内容。
 
-In this app we have two routes, `src/routes/+page.svelte` and `src/routes/about/+page.svelte`, that contain the same navigation UI. Let's create a new file, `src/routes/+layout.svelte`...
+在本应用中我们有两个页面，`src/routes/+page.svelte` 和 `src/routes/about/+page.svelte`，两个页面有相同的导航 UI。让我们创建一个新文件 `src/routes/+layout.svelte`……
 
 ```
 src/routes/
@@ -14,7 +14,7 @@ src/routes/
 └ +page.svelte
 ```
 
-...and move the duplicated content from the `+page.svelte` files into the new `+layout.svelte` file. The `<slot></slot>` element is where the page content will be rendered:
+……然后把 `+page.svelte` 文件中的相同内容转移到 `+layout.svelte` 文件。`<slot></slot>` 元素是页面内容进行渲染的位置：
 
 ```svelte
 /// file: src/routes/+layout.svelte
@@ -26,4 +26,4 @@ src/routes/
 <slot></slot>
 ```
 
-A `+layout.svelte` file applies to every child route, including the sibling `+page.svelte` (if it exists). You can nest layouts to arbitrary depth.
+一个 `+layout.svelte` 文件会应用到所有的子页面中，也包括同级目录下的 `+page.svelte` （如果存在的话）。你可以将布局嵌入到任意深度。

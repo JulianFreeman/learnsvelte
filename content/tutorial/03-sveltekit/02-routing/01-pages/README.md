@@ -1,12 +1,12 @@
 ---
-title: Pages
+title: 页面
 ---
 
-SvelteKit uses filesystem-based routing, which means that the _routes_ of your app — in other words, what the app should do when a user navigates to a particular URL — are defined by the directories in your codebase.
+SvelteKit 使用基于文件系统的路由，这就是说，网页应用中的 _路由_，或者说，当一个用户导航到一个特定的 URL 之后网页该呈现什么，是由代码库中的目录结构定义的。
 
-Every `+page.svelte` file inside `src/routes` creates a page in your app. In this app we currently have one page — `src/routes/+page.svelte`, which maps to `/`. If we navigate to `/about`, we'll see a 404 Not Found error.
+应用中在 `src/routes` 之下的每一个 `+page.svelte` 文件都会创建一个页面。当前应用中，我们只有一个页面 `src/routes/+page.svelte`，映射到路径就是 `/`。如果我们导航到 `/about`，就会出现 404 错误。
 
-Let's fix that. Add a second page, `src/routes/about/+page.svelte`, copy the contents of `src/routes/+page.svelte`, and update it:
+让我们解决这个问题。添加第二个页面 `src/routes/about/+page.svelte`，把 `src/routes/+page.svelte` 文件中的内容拷贝出来，然后做如下修改：
 
 ```svelte
 /// file: src/routes/about/+page.svelte
@@ -19,6 +19,6 @@ Let's fix that. Add a second page, `src/routes/about/+page.svelte`, copy the con
 <p>this is the +++about+++ page.</p>
 ```
 
-We can now navigate between `/` and `/about`.
+现在我们就可以在 `/` 和 `/about` 之间导航了。
 
-> Unlike traditional multi-page apps, navigating to `/about` and back updates the contents of the current page, like a single-page app. This gives us the best of both worlds — fast server-rendered startup, then instant navigation. (This behaviour can be [configured](https://kit.svelte.dev/docs/page-options).)
+> 跟传统的多页应用不同，导航到或者导航回 `/about` 更新的是当前页面的内容，就跟单页应用一样。这让我们同时利用了两种模式的好处：快速的服务器渲染启动，和即时导航。（这种行为可以被 [配置](https://kit.svelte.dev/docs/page-options)。）
