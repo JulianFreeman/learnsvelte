@@ -1,17 +1,17 @@
 ---
-title: Page data
+title: 页面数据
 path: /blog
 ---
 
-At its core, SvelteKit's job boils down to three things:
+SvelteKit 的核心工作可以归结为三件事：
 
-1. **Routing** — figure out which route matches an incoming request
-2. **Loading** — get the data needed by the route
-3. **Rendering** — generate some HTML (on the server) or update the DOM (in the browser)
+1. **路由** — 处理访问的请求该匹配哪个路由的问题
+2. **加载** — 获取页面需要的数据
+3. **渲染** — （在服务端）生成 HTML，或者（在浏览器）更新 DOM
 
-We've seen how routing and rendering work. Let's talk about the middle part — loading.
+我们已经见过了路由和渲染，现在让我们聊聊中间的这一步——加载。
 
-Every page of your app can declare a `load` function in a `+page.server.js` file alongside the `+page.svelte` file. As the file name suggests, this module only ever runs on the server, including for client-side navigations. Let's add a `src/routes/blog/+page.server.js` file so that we can replace the hard-coded links in `src/routes/blog/+page.svelte` with actual blog post data:
+应用中的每一页都可以在 `+page.svelte` 文件同级下的 `+page.server.js` 文件中声明一个 `load` 函数。如同这个文件名所表示的，这个模块只在服务端运行，哪怕是处理客户端的导航。让我们添加一个 `src/routes/blog/+page.server.js` 文件，以用实际的博客页数据替换掉 `src/routes/blog/+page.svelte` 文件中的硬编码链接：
 
 ```js
 /// file: src/routes/blog/+page.server.js
@@ -27,9 +27,9 @@ export function load() {
 }
 ```
 
-> For the sake of the tutorial, we're importing data from `src/routes/blog/data.js`. In a real app, you'd be more likely to load the data from a database or a CMS, but for now we'll do it like this.
+> 在本教程中，我们从 `src/routes/blog/data.js` 这个文件中导入的数据。在实际的应用中，你更可能会从数据库或者 CMS 中导入数据，但是目前，就先这样吧。
 
-We can access this data in `src/routes/blog/+page.svelte` via the `data` prop:
+我们可以通过 `data` 属性在 `src/routes/blog/+page.svelte` 文件中获取这些数据：
 
 ```svelte
 /// file: src/routes/blog/+page.svelte
@@ -49,7 +49,7 @@ We can access this data in `src/routes/blog/+page.svelte` via the `data` prop:
 </ul>
 ```
 
-Now, let's do the same for the post page:
+然后，对于博客页也是同理：
 
 ```js
 /// file: src/routes/blog/[slug]/+page.server.js
@@ -75,7 +75,7 @@ export function load({ params }) {
 <div>{@html data.post.content}</div>+++
 ```
 
-There's one last detail we need to take care of — the user might visit an invalid pathname like `/blog/nope`, in which case we'd like to respond with a 404 page:
+还有最后一件事需要考虑，用户可能会访问一个不存在的路径，比如 `/blog/nope`，这种情况下我们需要回应一个 404 页面：
 
 ```js
 /// file: src/routes/blog/[slug]/+page.server.js
@@ -93,4 +93,4 @@ export function load({ params }) {
 }
 ```
 
-We'll learn more about error handling in later chapters.
+我们会在之后的章节中学习更多关于错误处理的内容。
