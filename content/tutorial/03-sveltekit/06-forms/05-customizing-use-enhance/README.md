@@ -1,8 +1,8 @@
 ---
-title: Customizing use:enhance
+title: 自定义 use:enhance
 ---
 
-With `use:enhance`, we can go further than just emulating the browser's native behaviour. By providing a callback, we can add things like **pending states** and **optimistic UI**. Let's simulate a slow network by adding an artificial delay to our two actions:
+有了 `use:enhance`，我们能做到的不只是模拟浏览器的原生行为。通过提供一个回调函数，我们可以实现如 **待定状态** 和 **乐观 UI** 的功能。让我们给两个操作添加一个人工延迟，来模拟网速慢的情况：
 
 ```js
 /// file: src/routes/+page.server.js
@@ -19,7 +19,7 @@ export const actions = {
 };
 ```
 
-When we create or delete items, it now takes a full second before the UI updates, leaving the user wondering if they messed up somehow. To solve that, add some local state...
+当我们创建或者删除代办项的时候，会花费整整一秒才更新 UI，在这期间用户完全不知道发生了什么。要优化这点，让我们添加一些本地状态……
 
 ```svelte
 /// file: src/routes/+page.svelte
@@ -35,7 +35,7 @@ When we create or delete items, it now takes a full second before the UI updates
 </script>
 ```
 
-...and toggle `creating` inside the first `use:enhance`:
+……然后在第一个 `use:enhance` 中切换 `creating`：
 
 ```svelte
 /// file: src/routes/+page.svelte
@@ -64,7 +64,7 @@ When we create or delete items, it now takes a full second before the UI updates
 </form>
 ```
 
-We can then show a message while we're saving data:
+现在我们在保存数据的同时就可以展示一个信息了：
 
 ```svelte
 /// file: src/routes/+page.svelte
@@ -77,7 +77,7 @@ We can then show a message while we're saving data:
 {/if}+++
 ```
 
-In the case of deletions, we don't really need to wait for the server to validate anything — we can just update the UI immediately:
+对于删除的情况，我们实际上不需要服务端验证什么，所以可以立即更新 UI：
 
 ```svelte
 /// file: src/routes/+page.svelte
@@ -105,4 +105,4 @@ In the case of deletions, we don't really need to wait for the server to validat
 </ul>
 ```
 
-> `use:enhance` is very customizable — you can `cancel()` submissions, handle redirects, control whether the form is reset, and so on. [See the docs](https://kit.svelte.dev/docs/modules#$app-forms-enhance) for full details.
+> `use:enhance` 是高度可定制的，你可以用 `cancel()` 取消提交，可以处理重定向，控制表单是否重置，等等。查看 [文档](https://kit.svelte.dev/docs/modules#$app-forms-enhance) 了解更多细节。

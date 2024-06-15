@@ -1,10 +1,10 @@
 ---
-title: The <form> element
+title: <form> 元素
 ---
 
-In the chapter on [loading data](page-data), we saw how to get data from the server to the browser. Sometimes you need to send data in the opposite direction, and that's where `<form>` — the web platform's way of submitting data — comes in.
+在 [loading data](page-data) 的章节，我们见过了如何从服务器获取数据到浏览器。有时候你需要相反的操作，即把数据从浏览器发送给服务器，这就引出了 `<form>`，网页平台用来提交数据的方式。
 
-Let's build a todo app. We've already got an in-memory database set up in `src/lib/server/database.js`, and our `load` function in `src/routes/+page.server.js` uses the [`cookies`](https://kit.svelte.dev/docs/load#cookies) API so that we can have a per-user todo list, but we need to add a `<form>` to create new todos:
+让我们来搭建一个代办应用。我们有一个由 `src/lib/server/database.js` 文件配置的内存数据库，还有在 `src/routes/+page.server.js` 文件中使用 [`cookies`](https://kit.svelte.dev/docs/load#cookies) API 的 `load` 函数，这样我们就可以为每一个用户单独设置代办列表。但是我们还需要添加一个 `<form>` 来创建新的代办：
 
 ```svelte
 /// file: src/routes/+page.svelte
@@ -23,7 +23,7 @@ Let's build a todo app. We've already got an in-memory database set up in `src/l
 <ul class="todos">
 ```
 
-If we type something into the `<input>` and hit Enter, the browser makes a POST request (because of the `method="POST"` attribute) to the current page. But that results in an error, because we haven't created a server-side _action_ to handle the POST request. Let's do that now:
+如果你在 `<input>` 中输入些什么然后回车，浏览器会向当前页面发送一个 POST 请求（因为表单设置了 `method="POST"` 属性）。但是这会引发一个错误，因为我们还没有在服务端创建相应的 _操作_ 来处理这个 POST 请求。让我们现在添加：
 
 ```js
 /// file: src/routes/+page.server.js
@@ -41,8 +41,8 @@ export function load({ cookies }) {
 };+++
 ```
 
-The `request` is a standard [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object; `await request.formData()` returns a [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) instance.
+`request` 参数是一个标准的 [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) 对象；`await request.formData()` 返回一个 [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) 实例。
 
-When we hit Enter, the database is updated and the page reloads with the new data.
+当我们回车之后，数据库就会更新，页面也会重新加载新的数据。
 
-Notice that we haven't had to write any `fetch` code or anything like that — data updates automatically. And because we're using a `<form>` element, this app would work even if JavaScript was disabled or unavailable.
+注意我们不必写任何 `fetch` 代码，数据会自动更新。而且因为我们使用的是 `<form>` 元素，这个应用即便在 JavaScript 被禁用或者无法使用时依然能正常工作。

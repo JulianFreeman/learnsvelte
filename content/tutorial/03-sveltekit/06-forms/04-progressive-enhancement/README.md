@@ -1,12 +1,12 @@
 ---
-title: Progressive enhancement
+title: 渐进增强
 ---
 
-Because we're using `<form>`, our app works even if the user doesn't have JavaScript ([which happens more often than you probably think](https://kryogenix.org/code/browser/everyonehasjs.html)). That's great, because it means our app is resilient.
+因为我们使用的是 `<form>`，我们的应用可以在用户没有 JavaScript 的时候依然有效，[这种情况可能比想象中要更常见](https://kryogenix.org/code/browser/everyonehasjs.html)。这挺好，因为这代表我们的应用是有弹性的。
 
-Most of the time, users _do_ have JavaScript. In those cases, we can _progressively enhance_ the experience, the same way SvelteKit progressively enhances `<a>` elements by using client-side routing.
+但大部分时候，用户还是 _有_ JavaScript 的。在这种情况下，我们可以 _逐步增强_ 用户体验，就像 SvelteKit 使用客户端路由增强 `<a>` 元素一样。
 
-Import the `enhance` function from `$app/forms`...
+从 `$app/forms` 导入 `enhance` 函数……
 
 ```svelte
 /// file: src/routes/+page.svelte
@@ -18,7 +18,7 @@ Import the `enhance` function from `$app/forms`...
 </script>
 ```
 
-...and add the `use:enhance` directive to the `<form>` elements:
+……然后给 `<form>` 元素添加 `use:enhance` 标志：
 
 ```svelte
 /// file: src/routes/+page.svelte
@@ -30,14 +30,14 @@ Import the `enhance` function from `$app/forms`...
 <form method="POST" action="?/delete" +++use:enhance+++>
 ```
 
-And that's all it takes! Now, when JavaScript is enabled, `use:enhance` will emulate the browser-native behaviour except for the full-page reloads. It will:
+然后就完事了！现在，当 JavaScript 可用时，`use:enhance` 会模仿浏览器原生的行为，而不是把整个页面重载，包括如下几件事：
 
-- update the `form` prop
-- invalidate all data on a successful response, causing `load` functions to re-run
-- navigate to the new page on a redirect response
-- render the nearest error page if an error occurs
+- 更新 `form` 属性（prop）
+- 成功响应后无效化所有数据，触发 `load` 函数重载（re-run）
+- 通过重定向响应导航到新页面
+- 如果发生错误则渲染最近的错误页面
 
-Now that we're updating the page rather than reloading it, we can get fancy with things like transitions:
+既然我们现在是更新页面而非重载页面，我们可以使用比如过渡添加一些有意思的效果了：
 
 ```svelte
 /// file: src/routes/+page.svelte

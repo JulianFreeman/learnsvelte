@@ -1,10 +1,10 @@
 ---
-title: Named form actions
+title: 命名的表单操作
 ---
 
-A page that only has a single action is, in practice, quite rare. Most of the time you'll need to have multiple actions on a page. In this app, creating a todo isn't enough — we'd like to delete them once they're complete.
+只有一个操作的页面在实际项目中极为少见，大部分时候，你需要在一个页面上进行多种操作。在本应用中，单是创建代办还不够，我们还想让它们在完成后被删除掉。
 
-Begin by replacing our `default` action with named `create` and `delete` actions:
+让我们把 `default` 操作替换为命名的 `create` 和 `delete` 操作：
 
 ```js
 /// file: src/routes/+page.server.js
@@ -21,9 +21,9 @@ export const actions = {
 };
 ```
 
-> Default actions cannot coexist with named actions.
+> 默认操作无法与命名操作共存。
 
-The `<form>` element has an optional `action` attribute, which is similar to an `<a>` element's `href` attribute. Update the existing form so that it points to the new `create` action:
+`<form>` 元素有一个可选的 `action` 属性，就跟 `<a>` 元素的 `href` 属性差不多。更新表单以使其指向新创建的 `create` 操作：
 
 ```svelte
 /// file: src/routes/+page.svelte
@@ -38,9 +38,9 @@ The `<form>` element has an optional `action` attribute, which is similar to an 
 </form>
 ```
 
-> The `action` attribute can be any URL — if the action was defined on another page, you might have something like `/todos?/create`. Since the action is on _this_ page, we can omit the pathname altogether, hence the leading `?` character.
+> `action` 属性可以是任意 URL，如果操作是在其他页面定义的，你可以使用形如 `/todos?/create` 的路径。因为我们的操作是定义在 _当前_ 页面上的，我们可以省略路径，直接以 `?` 字符开头。
 
-Next, we want to create a form for each todo, complete with a hidden `<input>` that uniquely identifies it:
+接下来，我们想为每一个代办创建一个表单，以一个隐藏的 `<input>` 来唯一定位：
 
 ```svelte
 /// file: src/routes/+page.svelte
