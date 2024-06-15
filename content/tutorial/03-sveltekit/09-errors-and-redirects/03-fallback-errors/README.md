@@ -1,10 +1,10 @@
 ---
-title: Fallback errors
+title: 后备错误
 ---
 
-If things go _really_ wrong — an error occurs while loading the root layout data, or while rendering the error page — SvelteKit will fall back to a static error page.
+如果事情变得十分糟糕，比如在加载根布局数据时出错，或者在渲染错误页面时出错，SvelteKit 会回退到一个静态的错误页面。
 
-Add a new `src/routes/+layout.server.js` file to see this in action:
+添加一个新的 `src/routes/+layout.server.js` 文件来观察效果：
 
 ```js
 /// file: src/routes/+layout.server.js
@@ -13,7 +13,7 @@ export function load() {
 }
 ```
 
-You can customise the fallback error page. Create a `src/error.html` file:
+你可以自定义这个备用的错误页面。创建 `src/error.html` 文件：
 
 ```html
 /// file: src/error.html
@@ -22,7 +22,7 @@ You can customise the fallback error page. Create a `src/error.html` file:
 <p>%sveltekit.error.message%</p>
 ```
 
-This file can include the following:
+这个文件可以包含如下信息：
 
-- `%sveltekit.status%` — the HTTP status code
-- `%sveltekit.error.message%` — the error message
+- `%sveltekit.status%` — HTTP 状态码
+- `%sveltekit.error.message%` — 错误信息
