@@ -1,10 +1,10 @@
 ---
-title: GET handlers
+title: GET 处理器
 ---
 
-SvelteKit allows you to create more than just pages. We can also create _API routes_ by adding a `+server.js` file that exports functions corresponding to HTTP methods: `GET`, `PUT`, `POST`, `PATCH` and `DELETE`.
+SvelteKit 不止可以用来创建页面，我们也可以创建 _API 路由_，只需要添加一个 `+server.js` 文件，然后导出跟 HTTP 方法对应的函数：`GET`、`PUT`、`POST`、`PATCH` 和 `DELETE`。
 
-This app fetches data from a `/roll` API route when you click the button. Create that route by adding a `src/routes/roll/+server.js` file:
+本应用会在你点击按钮时，从一个 `/roll` API 抓取数据。添加一个 `src/routes/roll/+server.js` 文件来创建路由：
 
 ```js
 /// file: src/routes/roll/+server.js
@@ -19,9 +19,9 @@ export function GET() {
 }
 ```
 
-Clicking the button now works.
+现在点击按钮就可以正常工作了。
 
-Request handlers must return a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) object. Since it's common to return JSON from an API route, SvelteKit provides a convenience function for generating these responses:
+请求处理器必须返回一个 [响应](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) 对象。因为从一个 API 路由返回 JSON 太常见了，SvelteKit 提供了一个便捷的函数来生成这样的响应对象：
 
 ```js
 /// file: src/routes/roll/+server.js

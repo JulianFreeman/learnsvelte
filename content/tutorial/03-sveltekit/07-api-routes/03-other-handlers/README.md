@@ -1,8 +1,8 @@
 ---
-title: Other handlers
+title: 其他处理器
 ---
 
-Similarly, we can add handlers for other HTTP verbs. Add a `/todo/[id]` route by creating a `src/routes/todo/[id]/+server.js` file with `PUT` and `DELETE` handlers for toggling and removing todos, using the `toggleTodo` and `deleteTodo` functions in `src/lib/server/database.js`:
+同理，我们给其他 HTTP 方法添加处理器。要添加一个 `/todo/[id]` 路由，可以创建 `src/routes/todo/[id]/+server.js` 文件，添加 `PUT` 和 `DELETE` 处理器来使用 `src/lib/server/database.js` 文件中的 `toggleTodo` 和 `deleteTodo` 函数切换和移除代办：
 
 ```js
 /// file: src/routes/todo/[id]/+server.js
@@ -24,9 +24,9 @@ export async function DELETE({ params, cookies }) {
 }
 ```
 
-Since we don't need to return any actual data to the browser, we're returning an empty [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) with a [204 No Content](https://http.dog/204) status.
+因为我们不需要向浏览器返回任何实际数据，我们使用 [204 No Content](https://http.dog/204) 状态返回一个空 [响应](https://developer.mozilla.org/en-US/docs/Web/API/Response)。
 
-We can now interact with this endpoint inside our event handlers:
+现在我们可以在事件处理器中与此端点进行交互：
 
 ```svelte
 /// file: src/routes/+page.svelte
