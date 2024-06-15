@@ -49,7 +49,7 @@ export async function POST({ request, cookies }) {
 }
 ```
 
-就像 `load` 函数和表单操作中一样，`request` 参数是一个标准的 [请求](https://developer.mozilla.org/en-US/docs/Web/API/Request) 对象；`await request.json()` 会返回我们从事件处理器中发送的数据。
+就像 `load` 函数和表单操作中一样，`request` 参数是一个标准的 [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) 对象；`await request.json()` 会返回我们从事件处理器中发送的数据。
 
 我们以 [201 Created](https://http.dog/201) 状态和数据库中新创建的代办的 `id` 返回响应。在事件处理器中，我们可以以此更新页面：
 

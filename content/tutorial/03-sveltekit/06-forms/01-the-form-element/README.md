@@ -2,7 +2,7 @@
 title: <form> 元素
 ---
 
-在 [loading data](page-data) 的章节，我们见过了如何从服务器获取数据到浏览器。有时候你需要相反的操作，即把数据从浏览器发送给服务器，这就引出了 `<form>`，网页平台用来提交数据的方式。
+在 [加载数据](page-data) 的章节，我们见过了如何从服务器获取数据到浏览器。有时候你需要相反的操作，即把数据从浏览器发送给服务器，这就引出了 `<form>`，网页平台用来提交数据的方式。
 
 让我们来搭建一个代办应用。我们有一个由 `src/lib/server/database.js` 文件配置的内存数据库，还有在 `src/routes/+page.server.js` 文件中使用 [`cookies`](https://kit.svelte.dev/docs/load#cookies) API 的 `load` 函数，这样我们就可以为每一个用户单独设置代办列表。但是我们还需要添加一个 `<form>` 来创建新的代办：
 

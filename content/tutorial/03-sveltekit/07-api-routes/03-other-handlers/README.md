@@ -24,7 +24,7 @@ export async function DELETE({ params, cookies }) {
 }
 ```
 
-因为我们不需要向浏览器返回任何实际数据，我们使用 [204 No Content](https://http.dog/204) 状态返回一个空 [响应](https://developer.mozilla.org/en-US/docs/Web/API/Response)。
+因为我们不需要向浏览器返回任何实际数据，我们使用 [204 No Content](https://http.dog/204) 状态返回一个空 [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)。
 
 现在我们可以在事件处理器中与此端点进行交互：
 
